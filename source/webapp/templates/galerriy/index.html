@@ -10,12 +10,10 @@
 
         {% for gallery in Gallerys %}
             <img class="gallery" src="{{ gallery.images.url }}" width="250" height="250" alt="user picture">
-            <div>Likes: {{ gallery.laike }}</div>
-            <a href="{% url 'webapp:gallery_view' gallery.pk %}">More...</a>
-            {% if request.user.is_authenticated %}
-                <a href="{% url 'webapp:gallery_update' gallery.pk %}">Edit</a>
-                <a href="{% url 'webapp:gallery_delete' gallery.pk %}">Delete</a>
-            {% endif %}
+            <div class="btn btn-primary">Likes: {{ gallery.laike }}</div>
+            <a class="btn btn-secondary" href="{% url 'webapp:gallery_view' gallery.pk %}">More...</a>
+            <a class="btn btn-success" href="{% url 'webapp:gallery_update' gallery.pk %}">Edit</a>
+            <a class="btn btn-danger" href="{% url 'webapp:gallery_delete' gallery.pk %}">Delete</a>
             <hr/>
         {% endfor %}
 

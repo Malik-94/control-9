@@ -1,0 +1,53 @@
+[
+{
+  "model": "webapp.gallery",
+  "pk": 1,
+  "fields": {
+    "images": "Screenshot_from_2019-08-27_21-55-30.png",
+    "signature": "eragsfzdcx",
+    "created_at": "2019-12-14T08:14:33.587Z",
+    "laike": 0,
+    "author": "my"
+  }
+},
+{
+  "model": "webapp.gallery",
+  "pk": 4,
+  "fields": {
+    "images": "Screenshot_from_2019-08-27_21-55-30_UgJQWPR.png",
+    "signature": "\u043f\u0438\u0437\u0434\u0435\u0435\u0435\u0446",
+    "created_at": "2019-12-14T12:18:47.905Z",
+    "laike": 3,
+    "author": "\u043c\u0430\u043b\u0438\u043a"
+  }
+},
+{
+  "model": "webapp.gallery",
+  "pk": 5,
+  "fields": {
+    "images": "potomst_KgXi2T4.png",
+    "signature": "\u0436\u043e\u043e\u043f\u0430",
+    "created_at": "2019-12-14T13:17:29.384Z",
+    "laike": 5,
+    "author": "\u0435\u0449\u0435 \u043a\u0430\u043a\u0430\u044f"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$0jpsU53xy6Qh$9fRFwehElacHgbSFT3hZbbypdg80745d6kzGFF7icx4=",
+    "last_login": "2019-12-14T12:13:18.941Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2019-12-13T13:41:16.332Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

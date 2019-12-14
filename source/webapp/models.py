@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
@@ -20,6 +21,12 @@ class Gallery(models.Model):
         verbose_name_plural = 'Фотографии'
 
 
+class Like(models.Model):
+    user = models.ForeignKey(User, related_name='laike', on_delete=models.CASCADE, verbose_name='Автор лайка')
+    images = models.ForeignKey('webapp.Gallery', related_name='like_received', null=False, blank=False, on_delete=models.CASCADE, verbose_name='Нравится фотография')
+
+    def __str__(self):
+        return self.images
 
 class Comments(models.Model):
     text = models.TextField(max_length=2000, null=False, blank=False, verbose_name='Текст')

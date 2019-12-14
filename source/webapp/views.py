@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -26,8 +27,15 @@ class GalleryCreateView(CreateView):
     form_class = GalleryForm
 
 
+    def form_valid(self, form):
+        self.object = form.save(commit=False)
+        self.object.author = self.request.user
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
+
+
     def get_success_url(self):
-        return reverse('webapp:index')
+        return reverse('webapp:index', kwargs={'pk': self.object.pk})
 
 
 class GalleryUpdateView(UpdateView):
@@ -35,6 +43,11 @@ class GalleryUpdateView(UpdateView):
     template_name = 'galerriy/update.html'
     fields = ['images', 'signature', 'author', 'laike']
     context_object_name = 'objects'
+
+    def test_func(self):
+        images_pk = self.kwargs.get('pk')
+        images = Gallery.objects.get(pk=images_pk)
+        return self.request.user == images.author or self.request.user.has_perm('webapp.')
 
     def get_success_url(self):
         return reverse('webapp:index')

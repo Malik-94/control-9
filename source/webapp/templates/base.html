@@ -16,10 +16,19 @@
 <div class="container">
         <div class="menu">
             <li><a href="{% url 'webapp:index' %}">Home</a></li>
-            {% block menu %}{% endblock %}
+            {% block menu %}
+                 {% if request.user.is_authenticated %}
+                <li> <span class="menu-text"> Привет </span><a href="">{{ request.user.pk }}</a></li>
+                <li><a href="{% url 'webapp:logout' %}"> Log Out</a></li>
+            {% else %}
+                <li><a href="{% url 'webapp:login' %}"> Log in</a></li>
+            {% endif %}
+            {% endblock %}
             {% block content %}{% endblock %}
         </div>
 </div>
+
+
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Gallery{% endblock %}
+{% block menu %}
+
+        <li><a href="{% url 'webapp:gallery_update' gallery.pk %}">Edit</a></li>
+        <li><a href="{% url 'webapp:gallery_delete' gallery.pk %}">Delete</a></li>
+
+{% endblock %}
+{% block content %}
+   <div class="container">
+       <img class="gallery" src="{{ gallery.images.url }}" width="250" height="250" alt="user picture">
+        <div>Signature: {{ gallery.signature}}</div>
+        <div>Created at: {{ gallery.created_at }}</div>
+        <div>Like: {{ gallery.like }}</div>
+        <div>Author: {{ gallery.author }}</div>
+
+   </div>
+{% endblock %}

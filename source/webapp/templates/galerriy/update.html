@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Update gallery{% endblock %}
+{% block menu %}
+    <li><a href="{% url 'webapp:gallery_view' objects.pk %}">View</a></li>
+{% endblock %}
+{% block content %}
+    <h1>Update gallery</h1>
+    <form method="POST" action="{% url "webapp:gallery_update" objects.pk %}" enctype="multipart/form-data">
+        {% include 'partial/form.html' %}
+    <input type="submit" value="Создать" class="btn btn-primary">
+    </form>
+{% endblock %}
